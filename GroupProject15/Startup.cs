@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+//comment to check github works
+
 namespace GroupProject15
 {
     public class Startup
@@ -16,6 +18,7 @@ namespace GroupProject15
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            Console.WriteLine("Hello there");
         }
 
         public IConfiguration Configuration { get; }
