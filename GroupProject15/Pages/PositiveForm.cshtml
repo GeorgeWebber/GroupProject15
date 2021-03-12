@@ -1,8 +1,47 @@
-﻿@page "{id:int}"
+﻿@page
+
 @model GroupProject15.Pages.PositiveFormModel
 @{
     ViewData["Title"] = "Positive case entry";
 }
 
 <h1>Enter case data: </h1>
+
+<form method="post">
+    <div class="row">
+        <div class="col-9">
+            <ul class="PositiveFormList" data-role="listview">
+                <li class="forename">
+                    <div class="form-group">
+                        <label asp-for="Forename"></label>
+                        <input asp-for="Forename" class="form-control form-control-sm" />
+                        <span asp-validation-for="Forename"></span>
+                    </div>
+                </li>
+                <li class="last-name">
+                    <div class="form-group">
+                        <label asp-for="LastName"></label>
+                        <input asp-for="LastName" class="form-control form-control-sm" />
+                        <span asp-validation-for="LastName"></span>
+                    </div>
+                </li>
+                <li class="email">
+                    <div class="form-group">
+                        <label asp-for="EmailAddress"></label>
+                        <input asp-for="EmailAddress" class="form-control form-control-sm" />
+                        <span asp-validation-for="EmailAddress"></span>
+                    </div>
+                </li>
+            </ul>
+            <p class="actions">
+                <input type="hidden" asp-for="Id" />
+                <button class="btn btn-danger submit-button">Submit</button>
+            </p>
+        </div>
+    </div>
+</form>
+
+@section scripts{
+    <partial name="_ValidationScriptsPartial"></partial>
+}
 
