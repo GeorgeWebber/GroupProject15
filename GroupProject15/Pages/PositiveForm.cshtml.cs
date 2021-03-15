@@ -46,7 +46,7 @@ namespace GroupProject15.Pages
 
         //TODO check this regex
         //[RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", ErrorMessage = "Please supply a valid email address")]
-        [EmailAddress]
+        [EmailAddress]  //also performs email address validation, replaces the regex
         [BindProperty, Required(ErrorMessage = "Please supply a valid email address"), Display(Name = "Email address")]
         public string EmailAddress { get; set; }
         
