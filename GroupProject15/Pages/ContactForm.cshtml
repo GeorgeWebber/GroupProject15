@@ -1,16 +1,14 @@
 ﻿@page
-
-@model GroupProject15.Pages.PositiveFormModel
+@model GroupProject15.Pages.ContactFormModel
 @{
-    ViewData["Title"] = "Positive case entry";
+    ViewData["Title"] = "Contact entry";
 }
-
-<h1>Enter case data: </h1>
+<h1>Enter Contact Data: </h1>
 
 <form method="post">
     <div class="row">
         <div class="col-9">
-            <ul class="PositiveFormList" data-role="listview">
+            <ul class="CaseFormList" data-role="listview">
                 <li class="forename">
                     <div class="form-group">
                         <label asp-for="Forename"></label>
@@ -32,21 +30,6 @@
                         <span asp-validation-for="EmailAddress"></span>
                     </div>
                 </li>
-                <li class="phone-number">
-                    <div class="form-group">
-                        <label asp-for="PhoneNumber"></label>
-                        <input asp-for="PhoneNumber" class="form-control form-control-sm" />
-                        <span asp-validation-for="PhoneNumber"></span>
-                    </div>
-                </li>
-                <li class="test-date">
-                    <div class="form-group">
-                        <label asp-for="TestDate"></label>
-                        <input type="date" asp-for="TestDate" class="form-control form-control-sm" />
-                        <span asp-validation-for="TestDate"></span>
-                    </div>
-                </li>
-               
             </ul>
             <p class="actions">
                 <input type="hidden" asp-for="Id" />
@@ -59,4 +42,3 @@
 @section scripts{
     <partial name="_ValidationScriptsPartial"></partial>
 }
-
