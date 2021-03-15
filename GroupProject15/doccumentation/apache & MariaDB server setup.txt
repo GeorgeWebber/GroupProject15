@@ -3,7 +3,7 @@ Download XAMPP (tick the boxes for MySQL/MariaDB and Apache if prompted)
 To start server press "start" in controll panel
 
 Server files are getting stored in */xampp/htdocs/
-To change location of this folder click Apache config, open  httpf.conf file and modify both DocumentRoot and Directory entries (line ~250)
+To change location of this folder (I changed it to web_server_docs folder in github repo) click Apache config, open  httpf.conf file and modify both DocumentRoot and Directory entries (line ~250)
 
 To create MySQL/MariaDB database (after server is started), type into command prompt 
 
