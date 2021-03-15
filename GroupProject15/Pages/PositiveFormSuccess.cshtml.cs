@@ -9,8 +9,18 @@ namespace GroupProject15.Pages
 {
     public class PositiveFormSuccessModel : PageModel
     {
-        public void OnGet()
+        public void OnGet(string forename, string lastname)
         {
+            ForenameCheck = forename;
+            LastNameCheck = lastname;
+            Console.WriteLine(ForenameCheck);
+            Console.WriteLine(forename);
+            Console.WriteLine("in get");
         }
+
+        
+        public string ForenameCheck { get; set; }
+        public string LastNameCheck { get; set; }
     }
+
 }

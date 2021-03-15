@@ -18,6 +18,13 @@
                         <span asp-validation-for="Forename"></span>
                     </div>
                 </li>
+                <li class="middle-names">
+                    <div class="form-group">
+                        <label asp-for="MiddleNames"></label>
+                        <input asp-for="MiddleNames" class="form-control form-control-sm" />
+                        <span asp-validation-for="MiddleNames"></span>
+                    </div>
+                </li>
                 <li class="last-name">
                     <div class="form-group">
                         <label asp-for="LastName"></label>
@@ -34,7 +41,7 @@
                 </li>
             </ul>
             <p class="actions">
-                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="EmailAddress" />
                 <button class="btn btn-danger submit-button">Submit</button>
             </p>
         </div>
