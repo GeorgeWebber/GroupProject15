@@ -14,6 +14,7 @@ namespace GroupProject15.DBAccess
         public PositiveCaseDB(string connectionString)
         {
             Connection = new MySqlConnection(connectionString);
+            Console.WriteLine(connectionString);
         }
 
         public void Dispose() => Connection.Dispose();

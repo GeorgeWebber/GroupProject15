@@ -22,10 +22,14 @@ namespace GroupProject15.DBAccess
 
         internal PositiveCaseDBAPI(PositiveCaseDB db)
         {
+
+            Console.WriteLine("making positive case dbapi internally");
             Db = db;
         }
         public async Task AddRecord()
         {
+            Console.WriteLine("showing database instance");
+            Console.WriteLine(Db);
             using var cmd = Db.Connection.CreateCommand();
             cmd.CommandText = @"INSERT INTO `tablename` (`Forename`, `Lastname`) VALUES (@forename, @lastname);";
             BindParams(cmd);
@@ -61,5 +65,3 @@ namespace GroupProject15.DBAccess
     }
 }
 
-
-}

@@ -20,27 +20,24 @@ namespace GroupProject15.Pages
 
         internal PositiveCaseDB Db { get; set; }
 
-        internal PositiveFormModel(PositiveCaseDB db)
-        {
-            Db = db;
-        }
-
         public void OnGet()
         {
         }
 
         private readonly ILogger<PositiveFormModel> _logger;
 
-        public PositiveFormModel(ILogger<PositiveFormModel> logger)
+        public PositiveFormModel(ILogger<PositiveFormModel> logger, PositiveCaseDB db)
         {
             _logger = logger;
+            Console.WriteLine("should be showing db part 2");
+            Db = db;
+            Console.WriteLine(Db);
+
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
             //Product = await db.Products.FindAsync(Id);  some sort of await command here, so this runs when a command succeeds
-            
-            
             
             if (ModelState.IsValid)
             {
@@ -58,6 +55,7 @@ namespace GroupProject15.Pages
                 await dbAPI.AddRecord();
 
                 // what to do in case of failure - how to catch? - try-catch statement?
+                // currently just fails alarmingly
 
                 return RedirectToPage("PositiveFormSuccess", "Form success", new { forename = Forename, lastName = LastName});
             }
