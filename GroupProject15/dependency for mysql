@@ -1,0 +1,7 @@
+Hi all,
+
+For the mysql access we need, I added a dependency called mysqlconnector (reccommended by the mysql website for this stuff).
+
+To add it to your visual studio, go to project > manage nuget packages > browse for "MySQL.data" and install it.
+
+
