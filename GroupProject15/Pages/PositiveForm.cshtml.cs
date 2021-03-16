@@ -5,6 +5,10 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
+using MySql.Data.MySqlClient;
+using Microsoft.AspNetCore.Http;
+using GroupProject15.DBAccess;
+
 
 //TODO full validation on all fields
 //TODO add rest of fields
@@ -13,9 +17,18 @@ namespace GroupProject15.Pages
 {
     public class PositiveFormModel : PageModel
     {
+
+        internal PositiveCaseDB Db { get; set; }
+
+        internal PositiveFormModel(PositiveCaseDB db)
+        {
+            Db = db;
+        }
+
         public void OnGet()
         {
         }
+
         private readonly ILogger<PositiveFormModel> _logger;
 
         public PositiveFormModel(ILogger<PositiveFormModel> logger)
@@ -26,6 +39,9 @@ namespace GroupProject15.Pages
         public async Task<IActionResult> OnPostAsync()
         {
             //Product = await db.Products.FindAsync(Id);  some sort of await command here, so this runs when a command succeeds
+            
+            
+            
             if (ModelState.IsValid)
             {
                 Console.WriteLine("Writing to database:");
@@ -35,6 +51,13 @@ namespace GroupProject15.Pages
                 Console.WriteLine("Last name: " + LastName);
                 Console.WriteLine("Email address: " + EmailAddress);
 
+                var dbAPI = new PositiveCaseDBAPI(Db);
+                dbAPI.Forename = Forename;
+                dbAPI.LastName = LastName;
+
+                await dbAPI.AddRecord();
+
+                // what to do in case of failure - how to catch? - try-catch statement?
 
                 return RedirectToPage("PositiveFormSuccess", "Form success", new { forename = Forename, lastName = LastName});
             }

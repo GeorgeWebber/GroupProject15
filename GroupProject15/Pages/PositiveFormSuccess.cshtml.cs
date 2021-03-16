@@ -15,10 +15,7 @@ namespace GroupProject15.Pages
             LastNameCheck = lastname;
             Console.WriteLine(ForenameCheck);
             Console.WriteLine(forename);
-            Console.WriteLine("in get");
         }
-
-        
         public string ForenameCheck { get; set; }
         public string LastNameCheck { get; set; }
     }

@@ -4,10 +4,13 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
+using GroupProject15.DBAccess;
 
 
 namespace GroupProject15
@@ -25,6 +28,8 @@ namespace GroupProject15
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            services.AddTransient<PositiveCaseDB>(_ => new PositiveCaseDB(Configuration["ConnectionStrings:PositiveCaseDB"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
