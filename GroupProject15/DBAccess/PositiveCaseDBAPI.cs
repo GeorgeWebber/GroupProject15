@@ -41,6 +41,7 @@ namespace GroupProject15.DBAccess
             Id = (int)cmd.LastInsertedId;
         }
 
+        // a method left over from a tutorial - will leave here until clearup or it is used
         private void BindId(MySqlCommand cmd)
         {
             cmd.Parameters.Add(new MySqlParameter
