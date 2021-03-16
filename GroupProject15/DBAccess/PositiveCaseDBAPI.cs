@@ -31,9 +31,13 @@ namespace GroupProject15.DBAccess
             Console.WriteLine("showing database instance");
             Console.WriteLine(Db);
             using var cmd = Db.Connection.CreateCommand();
-            cmd.CommandText = @"INSERT INTO `tablename` (`Forename`, `Lastname`) VALUES (@forename, @lastname);";
+            Db.Connection.Open();
+            //cmd.CommandText = @"INSERT INTO `tablename` (`Forename`, `Lastname`) VALUES (@forename, @lastname);";
+            cmd.CommandText = @"INSERT INTO `table1` (`forename`) VALUES (@forename);";
             BindParams(cmd);
+            Console.WriteLine("Trying to execute command" + cmd.CommandText);
             await cmd.ExecuteNonQueryAsync();
+            Db.Connection.Close();
             Id = (int)cmd.LastInsertedId;
         }
 
@@ -55,12 +59,13 @@ namespace GroupProject15.DBAccess
                 DbType = DbType.String,
                 Value = Forename,
             });
-            cmd.Parameters.Add(new MySqlParameter
+            /* cmd.Parameters.Add(new MySqlParameter
             {
                 ParameterName = "@lastname",
                 DbType = DbType.String,
                 Value = LastName,
             });
+            */
         }
     }
 }

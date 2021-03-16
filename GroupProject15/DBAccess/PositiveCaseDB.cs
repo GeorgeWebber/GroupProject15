@@ -15,6 +15,7 @@ namespace GroupProject15.DBAccess
         {
             Connection = new MySqlConnection(connectionString);
             Console.WriteLine(connectionString);
+           
         }
 
         public void Dispose() => Connection.Dispose();
