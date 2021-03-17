@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,6 +25,12 @@ namespace GroupProject15
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(20);
+            });
+            services.AddControllers();
+            services.AddMemoryCache();
+            services.AddMvc();
             services.AddRazorPages();
         }
 
@@ -41,6 +48,10 @@ namespace GroupProject15
                 app.UseHsts();
             }
 
+            app.UseStaticFiles();
+            app.UseSession();
+            app.UseRouting();
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -55,3 +66,4 @@ namespace GroupProject15
         }
     }
 }
+

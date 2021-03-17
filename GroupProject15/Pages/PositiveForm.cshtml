@@ -13,43 +13,57 @@
             <ul class="PositiveFormList" data-role="listview">
                 <li class="forename">
                     <div class="form-group">
-                        <label asp-for="Forename"></label>
-                        <input asp-for="Forename" class="form-control form-control-sm" />
-                        <span asp-validation-for="Forename"></span>
+                        <label asp-for="caseForm.Forename"></label>
+                        <input asp-for="caseForm.Forename" class="form-control form-control-sm" />
+                        <span asp-validation-for="caseForm.Forename"></span>
                     </div>
                 </li>
                 <li class="last-name">
                     <div class="form-group">
-                        <label asp-for="LastName"></label>
-                        <input asp-for="LastName" class="form-control form-control-sm" />
-                        <span asp-validation-for="LastName"></span>
+                        <label asp-for="caseForm.LastName"></label>
+                        <input asp-for="caseForm.LastName" class="form-control form-control-sm" />
+                        <span asp-validation-for="caseForm.LastName"></span>
                     </div>
                 </li>
                 <li class="email">
                     <div class="form-group">
-                        <label asp-for="EmailAddress"></label>
-                        <input asp-for="EmailAddress" class="form-control form-control-sm" />
-                        <span asp-validation-for="EmailAddress"></span>
+                        <label asp-for="caseForm.EmailAddress"></label>
+                        <input asp-for="caseForm.EmailAddress" class="form-control form-control-sm" />
+                        <span asp-validation-for="caseForm.EmailAddress"></span>
                     </div>
                 </li>
                 <li class="phone-number">
                     <div class="form-group">
-                        <label asp-for="PhoneNumber"></label>
-                        <input asp-for="PhoneNumber" class="form-control form-control-sm" />
-                        <span asp-validation-for="PhoneNumber"></span>
+                        <label asp-for="caseForm.PhoneNumber"></label>
+                        <input asp-for="caseForm.PhoneNumber" class="form-control form-control-sm" />
+                        <span asp-validation-for="caseForm.PhoneNumber"></span>
                     </div>
                 </li>
                 <li class="test-date">
                     <div class="form-group">
-                        <label asp-for="TestDate"></label>
-                        <input type="date" asp-for="TestDate" class="form-control form-control-sm" />
-                        <span asp-validation-for="TestDate"></span>
+                        <label asp-for="caseForm.TestDate"></label>
+                        <input type="date" asp-for="caseForm.TestDate" class="form-control form-control-sm" />
+                        <span asp-validation-for="caseForm.TestDate"></span>
                     </div>
                 </li>
-               
+                <li class="symptom-date">
+                    <div class="form-group">
+                        <label asp-for="caseForm.SymptomDate"></label>
+                        <input type="date" asp-for="caseForm.SymptomDate" class="form-control form-control-sm" />
+                        <span asp-validation-for="caseForm.SymptomDate"></span>
+                    </div>
+                </li>
+                <li class="postcode">
+                    <div class="form-group">
+                        <label asp-for="caseForm.Postcode"></label>
+                        <input asp-for="caseForm.Postcode" class="form-control form-control-sm" />
+                        <span asp-validation-for="caseForm.Postcode"></span>
+                    </div>
+                </li>
+
             </ul>
             <p class="actions">
-                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="caseForm.Id" />
                 <button class="btn btn-danger submit-button">Submit</button>
             </p>
         </div>
