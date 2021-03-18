@@ -23,20 +23,9 @@ namespace GroupProject15.Pages
             _logger = logger;
         }
 
-        public async Task<IActionResult> OnPostAsync()
-        {
-            //Product = await db.Products.FindAsync(Id);  some sort of await command here, so this runs when a command succeeds
-            if (ModelState.IsValid)
-            {
-                return RedirectToPage("PositiveFormSuccess");
-            }
-            return Page();
-        }
-
-
         public int Id { get; set; }
 
-        
+
         [BindProperty, Required(ErrorMessage = "Please supply a forename"), Display(Name = "Forename")]
         public string Forename { get; set; }
 
@@ -47,8 +36,23 @@ namespace GroupProject15.Pages
         [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", ErrorMessage = "Please supply a valid email address")]
         [BindProperty, Required(ErrorMessage = "Please supply a valid email address"), Display(Name = "Email address")]
         public string EmailAddress { get; set; }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            //Product = await db.Products.FindAsync(Id);  some sort of await command here, so this runs when a command succeeds
+            if (ModelState.IsValid)
+            {
+                return RedirectToPage("PositiveFormSuccess");
+            }
+            return Page();
+        }
+
         
-        
+       
     }
+
+        
+        
+      
 
 }
