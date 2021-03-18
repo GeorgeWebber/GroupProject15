@@ -1,0 +1,7 @@
+databasebackup.ps1 script restores the backup
+of the database in new container named custdb 
+that can be the connected to the application 
+through orchestration. Make sure that path
+to the backup corresponds to your path and that
+SQL user/password is consistent throughout.
+Run sript in powershell

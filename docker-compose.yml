@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  groupproject15:
+    image: ${DOCKER_REGISTRY-}groupproject15
+    build:
+      context: .
+      dockerfile: GroupProject15/Dockerfile
+  custdb:
+    image: MyLocalRegistry:5000/custdb-image
+    build:
+      context: .
+      dockerfile: CustDBDocker.txt
