@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using GroupProject15.DBAccess;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System;
@@ -17,9 +18,12 @@ namespace GroupProject15.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public async void OnGet()
         {
-
+            PositiveCaseDBAPI api = new PositiveCaseDBAPI();
+            await api.AddTester();
+            
+            
         }
     }
 }

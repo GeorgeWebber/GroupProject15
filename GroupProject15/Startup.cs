@@ -1,3 +1,4 @@
+using GroupProject15.DBAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +26,7 @@ namespace GroupProject15
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddTransient<PositiveCaseDB>(_ => new PositiveCaseDB(Configuration["ConnectionStrings:PositiveCaseDB"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -5,10 +5,10 @@ docker rm MyLocalRegistry
 docker pull mcr.microsoft.com/mssql/server:2019-latest
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Kgt25%a8" -p 1433:1433  --name custdb -d mcr.microsoft.com/mssql/server:2019-latest
 docker exec -u 0 -it custdb mkdir /backups
-cd d:\GroupDesignProject\BackupFiles
-docker cp todoDatabase.bak custdb:/backups
-Start-Sleep -Seconds 15
-docker exec -it custdb /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "Kgt25%a8" `
+cd "C:\Users\George\Documents\University\Group Design Practical\db_backup"
+docker cp testdb.bak custdb:/backups
+Start-Sleep -Seconds 30
+docker exec -it custdb /opt/mssql-tools/bin/sqlcmd -S "localhost" -U "SA" -P "Kgt25%a8" `
 -Q `
 @"
  RESTORE DATABASE testdb FROM DISK = '/backups/testdb.bak' 
